@@ -1,0 +1,45 @@
+Q1
+
+class Stack:
+     def __init__(self):
+         self.items = []
+
+     def isEmpty(self):
+         return self.items == []
+
+     def push(self, item):
+         self.items.append(item)
+
+     def pop(self):
+         return self.items.pop()
+
+     def peek(self):
+         return self.items[len(self.items)-1]
+
+     def size(self):
+         return len(self.items)
+
+Q2
+
+from queue import Queue
+  
+q = Queue(maxsize = 3)
+  
+print(q.qsize()) 
+  
+q.put('a')
+q.put('b')
+q.put('c')
+  
+print("\nFull: ", q.full()) 
+  
+print("\nElements dequeued from the queue")
+print(q.get())
+print(q.get())
+print(q.get())
+  
+print("\nEmpty: ", q.empty())
+  
+q.put(1)
+print("\nEmpty: ", q.empty()) 
+print("Full: ", q.full())
