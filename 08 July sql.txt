@@ -1,0 +1,51 @@
+Q1
+SELECT  CONCAT(first_name,' ', last_name) 'Employee Name',email_id 
+     FROM employees;
+
+Q2	 
+SELECT * 
+FROM customer 
+WHERE city = 'New York' OR NOT grade>100;
+
+Q5
+SELECT DEPT_ID, MAX(SALARY) FROM department GROUP BY DEPT_ID;
+
+Q6
+SELECT
+    phone_num,
+    CONCAT(
+        '(',
+        SUBSTR(phone_num, 1, 3),
+        ') ',
+        SUBSTR(phone_num, 4, 3),
+        '-',
+        SUBSTR(phone_num, 7)
+    ) AS num_formatted
+FROM
+    EmpDetails
+	
+Q7
+
+
+ SELECT c.customerid,
+       Sum(p.price)
+FROM   customers AS c
+       INNER JOIN orders AS o
+               ON o.customerid = c.customerid
+       INNER JOIN orderdetails AS od
+               ON od.orderid = o.orderid
+       INNER JOIN products AS p
+               ON p.productid = od.productid
+GROUP  BY c.customerid
+ORDER  BY Sum(p.price) DESC
+LIMIT  5 
+	
+Q9
+ SELECT customers.name, customers.email, SUM(orders.price) AS "total"
+ FROM customers
+ LEFT OUTER JOIN orders
+ ON customers.id = orders.customer_id
+ GROUP BY customers.id
+ ORDER BY orders.price DESC;
+ 
+ 
